@@ -10,7 +10,9 @@ function dataHandling(datas) {
     for (let j = 0; j < datas[i].length; j++) {
       j == 0 ? console.log("Nomor ID : " + datas[i][j]) : null;
       j == 1 ? console.log("Nama Lengkap : " + datas[i][j]) : null;
-      j == 3 ? console.log("TTL : " + datas[i][j]) : null;
+      j == 3
+        ? console.log("TTL : " + datas[i][j - 1] + " " + datas[i][j])
+        : null;
       j == 4 ? console.log("Hobi : " + datas[i][j] + "\n") : null;
     }
   }
