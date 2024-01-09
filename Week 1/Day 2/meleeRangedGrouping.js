@@ -10,9 +10,9 @@ function meleeRangedGrouping(str) {
   for (let i = 0; i < heroes.length; i++) {
     const [hero, type] = customSplit(heroes[i], "-");
     if (type === "Melee") {
-      melee.push(hero);
+      customPush(melee, hero);
     } else if (type === "Ranged") {
-      ranged.push(hero);
+      customPush(ranged, hero);
     }
   }
 
@@ -25,7 +25,7 @@ function customSplit(str, delimiter) {
 
   for (let i = 0; i < str.length; i++) {
     if (str[i] === delimiter) {
-      result.push(current);
+      customPush(result, current);
       current = "";
     } else {
       current += str[i];
@@ -33,10 +33,15 @@ function customSplit(str, delimiter) {
   }
 
   if (current !== "") {
-    result.push(current);
+    customPush(result, current);
   }
 
   return result;
+}
+
+function customPush(arr, element) {
+  arr[arr.length] = element;
+  return arr.length;
 }
 
 // TEST CASE

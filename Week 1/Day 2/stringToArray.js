@@ -4,18 +4,25 @@ function stringToArray(string) {
 
   for (let i = 0; i < string.length; i++) {
     if (string[i] === ",") {
-      result.push(current);
+      customPush(result, current);
       current = [];
     } else {
-      current.push(string[i]);
+      customPush(current, string[i]);
     }
   }
 
   if (current.length > 0) {
-    result.push(current);
+    customPush(result, current);
   }
 
   return result;
+}
+
+function customPush(array, ...elements) {
+  for (let i = 0; i < elements.length; i++) {
+    array[array.length] = elements[i];
+  }
+  return array.length;
 }
 
 console.log(stringToArray("aqrst,ukaei,ffooo"));
